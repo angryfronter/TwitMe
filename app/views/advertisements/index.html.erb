@@ -1,12 +1,14 @@
 <h1>Advertisements</h1>
 
 
-<% @advertisement.each do |advertisement| %>
+<% @advertisements.each do |advertisement| %>
   <h2><%= advertisement.title %></h2>
 
   <p>
     <%= advertisement.body %>
     <br>
-    <%= link_to 'Edit', edit_advertisement_path(advertisement) %>
+    <%= link_to 'Show', advertisement_path(advertisement) %> |
+    <%= link_to 'Edit', edit_advertisement_path(advertisement) %> |
+    <%= button_to 'Delete', advertisement_path(advertisement), method: :delete, data: {confirm: 'Are you sure?'} %>
   </p>
 <% end %>
