@@ -8,6 +8,7 @@ class CommentsController < ApplicationController
       flash[:success] = "Comment added!"
       redirect_to advertisement_path(@advertisement)
     else
+      @comments = Comment.order created_at: :desc
       render 'advertisements/show'
     end
   end
