@@ -5,6 +5,7 @@ class AdvertisementsController < ApplicationController
   def show; end
 
   def destroy
+    flash[:success] = 'Advertisement deleted!'
     if @advertisement.destroy
       redirect_to advertisements_path
     else
@@ -15,6 +16,7 @@ class AdvertisementsController < ApplicationController
   def edit; end
 
   def update
+    flash[:success] = 'Advertisement updated!'
     if @advertisement.update(advertisement_params)
       redirect_to advertisements_path
     else
@@ -30,7 +32,9 @@ class AdvertisementsController < ApplicationController
   end
 
   def create
+    @advertisement = Advertisement.new(advertisement_params)
     if @advertisement.save
+      flash[:success] = 'Advertisement added!'
       redirect_to advertisements_path
     else
       render :new

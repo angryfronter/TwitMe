@@ -1,14 +1,21 @@
-<h1>Advertisements</h1>
+<h1 class="mb-4">Advertisements</h1>
 
+<%= link_to 'Add advertisement', new_advertisement_path, class: 'btn btn-primary btn-lg' %>
 
 <% @advertisements.each do |advertisement| %>
-  <h2><%= advertisement.title %></h2>
+  <article class="card mt-3">
+    <div class="card-body">
+      <h4><%= advertisement.title %></h4>
 
-  <p>
-    <%= advertisement.body %>
-    <br>
-    <%= link_to 'Show', advertisement_path(advertisement) %> |
-    <%= link_to 'Edit', edit_advertisement_path(advertisement) %> |
-    <%= button_to 'Delete', advertisement_path(advertisement), method: :delete, data: {confirm: 'Are you sure?'} %>
-  </p>
+      <section class="card-text">
+        <p class="my-2">
+          <%= advertisement.body %>
+        </p>
+      </section>
+
+      <%= link_to 'Show', advertisement_path(advertisement), class: 'btn btn-primary' %>
+      <%= link_to 'Edit', edit_advertisement_path(advertisement), class: 'btn btn-secondary' %>
+      <%= button_to 'Delete', advertisement_path(advertisement), class: 'btn btn-danger' , method: :delete, data: {confirm: 'Are you sure?'} %>
+    </div>
+  </article>
 <% end %>
