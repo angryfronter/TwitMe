@@ -1,8 +1,11 @@
 class AdvertisementsController < ApplicationController
 
-  before_action :set_advertisement,  except: %i[index new create]
+  before_action :set_advertisement!,  except: %i[index new create]
 
-  def show; end
+  def show
+    @comment = @advertisement.comments.build
+    @comments = Comment.order created_at: :desc
+  end
 
   def destroy
     flash[:success] = 'Advertisement deleted!'
@@ -43,7 +46,7 @@ class AdvertisementsController < ApplicationController
 
   private
 
-  def set_advertisement
+  def set_advertisement!
     @advertisement = Advertisement.find(params[:id])
   end
 
