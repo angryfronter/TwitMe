@@ -31,7 +31,7 @@
 
 <% @comments.each do |comment| %>
   <article class="mb-3">
-    <time datetime="<%= commenestroyt.formatted_created_at %>">
+    <time datetime="<%= comment.formatted_created_at %>">
       <%= comment.formatted_created_at %>
     </time>
 
@@ -39,6 +39,6 @@
       <%= comment.body %>
     </p>
 
-    <%= link_to 'Delete comment', advertisement_comment_path(@advertisement, comment), class: 'btn btn-danger btn-sm', data: {method: :delete, confirm: "Are you sure?"} %>
+    <%= button_to 'Delete comment', advertisement_comment_path(@advertisement, comment), method: :delete, class: 'btn btn-danger btn-sm', data: { confirm: "Are you sure?"} %>
   </article>
 <% end %>
