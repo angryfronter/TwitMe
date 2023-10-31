@@ -16,6 +16,6 @@
 
 <%= render 'comments/form' %>
 
-<h2 class="mt-5">Comments</h2>
+<h2 class="mt-5 mb-3">Comments</h2>
 
 <%= render partial: 'comments/comment', collection:  @comments, as: :comment, locals: {advertisement: @advertisement} %>

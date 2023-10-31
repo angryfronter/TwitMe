@@ -4,7 +4,7 @@ class AdvertisementsController < ApplicationController
 
   def show
     @comment = @advertisement.comments.build
-    @comments = @advertisement.comments.order(created_at: :desc)
+    @comments = @advertisement.comments.order(created_at: :desc).decorate
   end
 
   def destroy
@@ -28,6 +28,7 @@ class AdvertisementsController < ApplicationController
   end
   def index
     @advertisements = Advertisement.order(created_at: :desc).page params[:page]
+    @show_pagination = @advertisements.total_pages > 1
   end
 
   def new
