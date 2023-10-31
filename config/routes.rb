@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :advertisements do
-    resources :comments, only: %i[create destroy]
+    resources :comments, except: %i[new show]
   end
 
   root 'pages#index'

@@ -11,34 +11,25 @@
 
 <h2>Write your comment here</h2>
 
-<%= render 'shared/errors', object: @comment %>
-
-<%= form_with model: [@advertisement, @comment] do |f| %>
-  <div class="mb-3 row">
-    <div class="col-sm-2 col-form-label">
-      <%= f.label :body %>
-    </div>
-
-    <div class="col-sm-10">
-      <%= f.text_area :body, class: 'form-control' %>
-    </div>
-  </div>
-
-  <%= f.submit "Add a comment", class: 'btn btn-primary' %>
-  <% end %>
+<%= render 'comments/form' %>
 
 <h2 class="mt-5">Comments</h2>
 
 <% @comments.each do |comment| %>
-  <article class="mb-3">
-    <time datetime="<%= comment.formatted_created_at %>">
-      <%= comment.formatted_created_at %>
-    </time>
+  <article class="mb-3 card">
+    <div class="card-body">
+      <section class="card-text">
+        <small><time datetime="<%= comment.formatted_created_at %>">
+          <%= comment.formatted_created_at %>
+        </time></small>
 
-    <p>
-      <%= comment.body %>
-    </p>
+        <p class="mt-2 mb-3">
+          <%= comment.body %>
+        </p>
+      </section>
 
-    <%= button_to 'Delete comment', advertisement_comment_path(@advertisement, comment), method: :delete, class: 'btn btn-danger btn-sm', data: { confirm: "Are you sure?"} %>
+      <%= link_to 'Edit comment', edit_advertisement_comment_path(@advertisement, comment), class: 'btn btn-info btn-sm' %>
+      <%= button_to 'Delete comment', advertisement_comment_path(@advertisement, comment), method: :delete, class: 'btn btn-danger btn-sm', data: { confirm: "Are you sure?"} %>
+    </div>
   </article>
 <% end %>

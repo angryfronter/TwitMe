@@ -4,7 +4,7 @@ class AdvertisementsController < ApplicationController
 
   def show
     @comment = @advertisement.comments.build
-    @comments = Comment.order created_at: :desc
+    @comments = @advertisement.comments.order created_at: :desc
   end
 
   def destroy
