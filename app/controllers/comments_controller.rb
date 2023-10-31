@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+  include ActionView::RecordIdentifier
 
   before_action :set_advertisement!
   before_action :set_comment!, except: :create
@@ -6,7 +7,7 @@ class CommentsController < ApplicationController
   def update
     if @comment.update(comment_params)
       flash[:success] = 'Comment has been updated!'
-      redirect_to advertisement_path(@advertisement)
+      redirect_to advertisement_path(@advertisement, anchor: dom_id(@comment))
     else
       render :edit
     end
