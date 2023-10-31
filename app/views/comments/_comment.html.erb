@@ -1,16 +1,18 @@
-<article class="mb-3 card">
-  <div class="card-body">
-    <section class="card-text">
-      <small><time datetime="<%= comment.formatted_created_at %>">
-        <%= comment.formatted_created_at %>
-      </time></small>
+<%= tag.article class: 'mb-3', id: dom_id(comment) do %>
+  <article class="mb-3 card">
+    <div class="card-body">
+      <section class="card-text">
+        <small><time datetime="<%= comment.formatted_created_at %>">
+          <%= comment.formatted_created_at %>
+        </time></small>
 
-      <div class="mt-2 mb-3">
-        <%= sanitize comment.body %>
-      </div>
-    </section>
+        <div class="mt-2 mb-3">
+          <%= sanitize comment.body %>
+        </div>
+      </section>
 
-    <%= link_to 'Edit comment', edit_advertisement_comment_path(advertisement, comment), class: 'btn btn-info btn-sm' %>
-    <%= button_to 'Delete comment', advertisement_comment_path(advertisement, comment), method: :delete, class: 'btn btn-danger btn-sm', data: { confirm: "Are you sure?"} %>
-  </div>
-</article>
+      <%= link_to 'Edit comment', edit_advertisement_comment_path(advertisement, comment), class: 'btn btn-info btn-sm' %>
+      <%= button_to 'Delete comment', advertisement_comment_path(advertisement, comment), method: :delete, class: 'btn btn-danger btn-sm', data: { confirm: "Are you sure?"} %>
+    </div>
+  </article>
+<% end %>
