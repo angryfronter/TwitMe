@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class AdvertisementsController < ApplicationController
+  include AdvertisementsComments
   before_action :set_advertisement!, except: %i[index new create]
 
   def index
@@ -9,8 +10,7 @@ class AdvertisementsController < ApplicationController
   end
 
   def show
-    @comment = @advertisement.comments.build
-    @comments = @advertisement.comments.order(created_at: :desc).decorate
+    load_advertisement_comments
   end
 
   def new
