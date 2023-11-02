@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class CommentDecorator < ApplicationDecorator
+class AdvertisementDecorator < ApplicationDecorator
   delegate_all
 
   def formatted_created_at

@@ -1,12 +1,13 @@
+# frozen_string_literal: true
+
 class User < ApplicationRecord
   attr_accessor :old_password
 
   has_secure_password validations: false
 
   validate :password_presence
-  validate :correct_old_password, on: :update, if: -> {password.present? }
-  validates :password, confirmation: true, allow_blank: true, length: {minimum: 4, maximum: 8}
-
+  validate :correct_old_password, on: :update, if: -> { password.present? }
+  validates :password, confirmation: true, allow_blank: true, length: { minimum: 4, maximum: 8 }
 
   validates :email, presence: true, uniqueness: true, 'valid_email_2/email': true
 
@@ -19,6 +20,6 @@ class User < ApplicationRecord
   end
 
   def password_presence
-    errors.add(:password, :blank) unless password_digest.present?
+    errors.add(:password, :blank) if password_digest.blank?
   end
 end

@@ -1,39 +1,23 @@
-class AdvertisementsController < ApplicationController
+# frozen_string_literal: true
 
-  before_action :set_advertisement!,  except: %i[index new create]
+class AdvertisementsController < ApplicationController
+  before_action :set_advertisement!, except: %i[index new create]
+
+  def index
+    @advertisements = Advertisement.order(created_at: :desc).page params[:page]
+    @show_pagination = @advertisements.total_pages > 1
+  end
 
   def show
     @comment = @advertisement.comments.build
     @comments = @advertisement.comments.order(created_at: :desc).decorate
   end
 
-  def destroy
-    flash[:success] = 'Advertisement deleted!'
-    if @advertisement.destroy
-      redirect_to advertisements_path
-    else
-      render :'advertisements/index'
-    end
-  end
-
-  def edit; end
-
-  def update
-    flash[:success] = 'Advertisement updated!'
-    if @advertisement.update(advertisement_params)
-      redirect_to advertisements_path
-    else
-      render :edit
-    end
-  end
-  def index
-    @advertisements = Advertisement.order(created_at: :desc).page params[:page]
-    @show_pagination = @advertisements.total_pages > 1
-  end
-
   def new
     @advertisement = Advertisement.new
   end
+
+  def edit; end
 
   def create
     @advertisement = Advertisement.new(advertisement_params)
@@ -42,6 +26,24 @@ class AdvertisementsController < ApplicationController
       redirect_to advertisements_path
     else
       render :new
+    end
+  end
+
+  def update
+    flash.now[:success] = 'Advertisement updated!'
+    if @advertisement.update(advertisement_params)
+      redirect_to advertisements_path
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    flash.now[:success] = 'Advertisement deleted!'
+    if @advertisement.destroy
+      redirect_to advertisements_path
+    else
+      render :'advertisements/index'
     end
   end
 
@@ -54,5 +56,4 @@ class AdvertisementsController < ApplicationController
   def advertisement_params
     params.require(:advertisement).permit(:title, :body)
   end
-
 end
