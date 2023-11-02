@@ -1,0 +1,18 @@
+<article class="card my-3">
+  <section class="card-header">
+    <%= advertisement.user.email %>
+  </section>
+  <div class="card-body">
+    <h4><%= advertisement.title %></h4>
+
+    <section class="card-text">
+      <p class="my-2">
+        <%= truncate strip_tags(advertisement.body), length: 160, separator: ' ', omission: '...' %>
+      </p>
+    </section>
+
+    <%= link_to 'Show', advertisement_path(advertisement), class: 'btn btn-primary' %>
+    <%= link_to 'Edit', edit_advertisement_path(advertisement), class: 'btn btn-secondary' %>
+    <%= button_to 'Delete', advertisement_path(advertisement), class: 'btn btn-danger' , method: :delete, data: {confirm: 'Are you sure?'} %>
+  </div>
+</article>
