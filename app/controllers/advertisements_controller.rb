@@ -5,7 +5,7 @@ class AdvertisementsController < ApplicationController
   before_action :set_advertisement!, except: %i[index new create]
 
   def index
-    @advertisements = Advertisement.order(created_at: :desc).page params[:page]
+    @advertisements = Advertisement.includes(:user).order(created_at: :desc).page params[:page]
     @show_pagination = @advertisements.total_pages > 1
   end
 
