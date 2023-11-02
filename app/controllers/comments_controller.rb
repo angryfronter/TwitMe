@@ -1,8 +1,25 @@
+# frozen_string_literal: true
+
 class CommentsController < ApplicationController
   include ActionView::RecordIdentifier
 
   before_action :set_advertisement!
   before_action :set_comment!, except: :create
+
+  def edit; end
+
+  def create
+    @comment = @advertisement.comments.build(comment_params)
+    if @comment.save
+      flash[:success] = 'Comment added!'
+      redirect_to advertisement_path(@advertisement)
+    else
+      @advertisement = @advertisement.decorate
+      @comments = @advertisement.comments.order created_at: :desc
+      @comments = @comments.decorate
+      render 'advertisements/show'
+    end
+  end
 
   def update
     if @comment.update(comment_params)
@@ -13,23 +30,9 @@ class CommentsController < ApplicationController
     end
   end
 
-  def edit
-  end
-
-  def create
-    @comment = @advertisement.comments.build(comment_params)
-    if @comment.save
-      flash[:success] = "Comment added!"
-      redirect_to advertisement_path(@advertisement)
-    else
-      @comments = @advertisement.comments.order created_at: :desc
-      render 'advertisements/show'
-    end
-  end
-
   def destroy
     @comment.destroy
-    flash[:success] = "Comment deleted!"
+    flash[:success] = 'Comment deleted!'
     redirect_to advertisement_path(@advertisement)
   end
 
