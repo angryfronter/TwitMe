@@ -2,10 +2,16 @@
   <section class="card-header">
     <%= advertisement.user.email %>
   </section>
+
   <div class="card-body">
     <h4><%= advertisement.title %></h4>
 
     <section class="card-text">
+
+      <div class="my-2">
+        <%= render advertisement.tags %>
+      </div>
+
       <p class="my-2">
         <%= truncate strip_tags(advertisement.body), length: 160, separator: ' ', omission: '...' %>
       </p>
