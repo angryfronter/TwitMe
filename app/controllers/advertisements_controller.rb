@@ -10,6 +10,7 @@ class AdvertisementsController < ApplicationController
     per_page = 10
     @advertisements = Advertisement.all_by_tags(params[:tag_ids], page, per_page)
     @show_pagination = @advertisements.total_pages > 1
+    @tags = Tag.all
   end
 
   def show

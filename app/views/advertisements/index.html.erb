@@ -3,7 +3,20 @@
 
 <h1 class="mb-4">Advertisements</h1>
 
-<%= link_to 'Add advertisement', new_advertisement_path, class: 'btn btn-primary btn-lg' %>
+<section class="mb-5">
+  <h2 class="">Search by tags</h2>
+
+  <%= form_with url: advertisements_path, method: :get do |f| %>
+    <div class="mb-3">
+      <%= f.collection_select :tag_ids, @tags, :id, :title, {selected: params[:tag_ids]},
+                              multiple: true, required: true %>
+    </div>
+
+    <%= button_tag 'Search', class: 'btn btn-secondary'%>
+    <% end %>
+</section>
+
+<%= link_to 'Add advertisement', new_advertisement_path, class: 'btn btn-primary btn-lg mb-3' %>
 
 <%= render @advertisements %>
 
