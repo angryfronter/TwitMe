@@ -1,0 +1,19 @@
+<% provide :page_title, 'List of Users' %>
+<% currently_at 'Users' %>
+
+<h1 class="mb-4">List of Users</h1>
+
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Name</th>
+      <th scope="col">E-mail</th>
+      <th scope="col">Created at</th>
+      <th scope="col">Updated at</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @user %>
+  </tbody>
+</table>
