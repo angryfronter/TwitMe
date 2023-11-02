@@ -20,7 +20,7 @@ class AdvertisementsController < ApplicationController
   def edit; end
 
   def create
-    @advertisement = Advertisement.new(advertisement_params)
+    @advertisement = current_user.advertisements.build(advertisement_params)
     if @advertisement.save
       flash[:success] = 'Advertisement added!'
       redirect_to advertisements_path
