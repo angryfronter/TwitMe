@@ -6,6 +6,8 @@ class CommentsController < ApplicationController
 
   before_action :set_advertisement!
   before_action :set_comment!, except: :create
+  before_action :authorize_comment!
+  after_action :verify_authorized
 
   def edit; end
 
@@ -50,5 +52,9 @@ class CommentsController < ApplicationController
 
   def set_comment!
     @comment = @advertisement.comments.find params[:id]
+  end
+
+  def authorize_comment!
+    authorize(@comment || Comment)
   end
 end

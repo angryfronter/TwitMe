@@ -19,8 +19,13 @@
             </div>
           </section>
 
-          <%= link_to 'Edit comment', edit_advertisement_comment_path(advertisement, comment), class: 'btn btn-info btn-sm' %>
-          <%= button_to 'Delete comment', advertisement_comment_path(advertisement, comment), method: :delete, class: 'btn btn-danger btn-sm', data: { confirm: "Are you sure?"} %>
+          <% if policy(comment).edit? %>
+            <%= link_to 'Edit comment', edit_advertisement_comment_path(advertisement, comment), class: 'btn btn-info btn-sm' %>
+          <% end %>
+
+          <% if policy(comment).destroy? %>
+            <%= button_to 'Delete comment', advertisement_comment_path(advertisement, comment), method: :delete, class: 'btn btn-danger btn-sm', data: { confirm: "Are you sure?"} %>
+          <% end %>
         </div>
       </div>
   </div>

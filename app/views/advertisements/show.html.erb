@@ -16,7 +16,10 @@
   <div class="btn-group">
 
       <%= link_to 'Edit', edit_advertisement_path(@advertisement), class: 'btn btn-secondary' %>
+
+    <% if policy(@advertisement).destroy? %>
       <%= button_to 'Delete', advertisement_path(@advertisement), class: 'btn btn-danger' , method: :delete, data: {confirm: 'Are you sure?'} %>
+    <% end %>
 
   </div>
 </div>
@@ -24,9 +27,11 @@
 
 <hr class="my-3">
 
+<% if policy(:comment).new? %>
 <h2>Write your comment here</h2>
 
 <%= render 'comments/form' %>
+<% end %>
 
 <h2 class="mt-5 mb-3">Comments</h2>
 

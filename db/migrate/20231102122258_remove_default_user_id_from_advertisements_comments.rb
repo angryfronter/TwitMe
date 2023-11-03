@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class RemoveDefaultUserIdFromAdvertisementsComments < ActiveRecord::Migration[7.0]
   def up
     change_column_default :advertisements, :user_id, from: User.first.id, to: nil
