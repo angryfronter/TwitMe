@@ -18,7 +18,13 @@
     </section>
 
     <%= link_to 'Show', advertisement_path(advertisement), class: 'btn btn-primary' %>
-    <%= link_to 'Edit', edit_advertisement_path(advertisement), class: 'btn btn-secondary' %>
-    <%= button_to 'Delete', advertisement_path(advertisement), class: 'btn btn-danger' , method: :delete, data: {confirm: 'Are you sure?'} %>
+
+    <% if policy(advertisement).edit? %>
+      <%= link_to 'Edit', edit_advertisement_path(advertisement), class: 'btn btn-secondary' %>
+    <% end %>
+
+    <% if policy(advertisement).destroy? %>
+      <%= button_to 'Delete', advertisement_path(advertisement), class: 'btn btn-danger' , method: :delete, data: {confirm: 'Are you sure?'} %>
+    <% end %>
   </div>
 </article>

@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class Advertisement < ApplicationRecord
+  include Authorship
+
   has_many :comments, dependent: :destroy
   belongs_to :user
 

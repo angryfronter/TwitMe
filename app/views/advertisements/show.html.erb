@@ -11,12 +11,17 @@
   <%=  @advertisement.user.email%>
 </div>
 
+<% if policy(@advertisement).edit? %>
 <div class="border-top py-3">
   <div class="btn-group">
-    <%= link_to 'Edit', edit_advertisement_path(@advertisement), class: 'btn btn-secondary' %>
-    <%= button_to 'Delete', advertisement_path(@advertisement), class: 'btn btn-danger' , method: :delete, data: {confirm: 'Are you sure?'} %>
+
+      <%= link_to 'Edit', edit_advertisement_path(@advertisement), class: 'btn btn-secondary' %>
+      <%= button_to 'Delete', advertisement_path(@advertisement), class: 'btn btn-danger' , method: :delete, data: {confirm: 'Are you sure?'} %>
+
   </div>
 </div>
+<% end %>
+
 <hr class="my-3">
 
 <h2>Write your comment here</h2>
