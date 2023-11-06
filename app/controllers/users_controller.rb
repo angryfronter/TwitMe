@@ -11,6 +11,14 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+  def show
+    @user = User.find(params[:id])
+  end
+
+  def all_users
+    @user = User.order(created_at: :desc)
+  end
+
   def edit; end
 
   def create

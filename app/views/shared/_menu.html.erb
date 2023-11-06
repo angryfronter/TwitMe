@@ -6,9 +6,15 @@
           <li><%= nav_tab 'Home', root_path, class: 'nav-link px-2', current_page: current_page %></li>
           <li><%= nav_tab 'Advertisements', advertisements_path, class: 'nav-link px-2', current_page: current_page %></li>
 
-          <% if policy([:admin, :user]).index? %>
-            <li><%= nav_tab 'Users', admin_users_path, class: 'nav-link px-2', current_page: current_page %></li>
+          <% if user_signed_in? %>
+            <% if policy([:admin, :user]).index? %>
+              <li><%= nav_tab 'Users', admin_users_path, class: 'nav-link px-2', current_page: current_page %></li>
+            <% end %>
+            <li><%= nav_tab 'All Users', all_users_path, class: 'nav-link px-2', current_page: current_page %></li>
+          <% else %>
+            <li><%= nav_tab 'All Users', all_users_path, class: 'nav-link px-2', current_page: current_page %></li>
           <% end %>
+
         </ul>
 
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 mb-md-0">
