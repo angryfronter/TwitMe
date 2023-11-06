@@ -8,6 +8,8 @@ Rails.application.routes.draw do
     resources :comments, except: %i[new show]
   end
 
+  resource :password_reset, only: %i[new create edit update]
+
   namespace :admin do
     resources :users, only: %i[index create edit update destroy]
   end
