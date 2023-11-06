@@ -40,7 +40,7 @@ gem 'pundit', '~> 2.1'
 gem 'draper', '~> 4.0'
 gem 'kaminari', '~> 1.2'
 gem 'valid_email2', '~> 4.0'
-
+gem 'digest'
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
@@ -68,6 +68,7 @@ group :development do
   gem 'rubocop', '~> 1.18', require: false
   gem 'rubocop-performance', '~> 1.11', require: false
   gem 'rubocop-rails', '~> 2.11', require: false
+  gem 'letter_opener'
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
 end
