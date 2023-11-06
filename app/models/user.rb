@@ -18,6 +18,14 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true, 'valid_email_2/email': true
   validates :role, presence: true
 
+  validates :birthday, presence: true
+  validates :address, presence: true
+  validates :city, presence: true
+  validates :state, presence: true
+  validates :country, presence: true
+  validates :zip, presence: true
+
+
   def guest?
     false
   end
