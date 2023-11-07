@@ -6,6 +6,12 @@
   <div class="card-body">
     <h4><%= advertisement.title %></h4>
 
+    <% if advertisement.image.present? %>
+      <div class="border-top py-3">
+        <%= image_tag advertisement.image.thumb('100x100').url, class: 'img-fluid' %>
+      </div>
+    <% end %>
+
     <section class="card-text">
 
       <div class="my-2">
