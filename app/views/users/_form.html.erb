@@ -1,0 +1,45 @@
+<%= render 'shared/errors', object: @user %>
+
+<%= form_with model: @user do |f| %>
+  <div class="mb-3 row">
+    <div class="col-sm-2 col-form-label">
+      <%= f.label :title %>
+    </div>
+
+    <div class="col-sm-10">
+      <%= f.email_field :email, placeholder: 'E-mail', class: 'form-control-lg' %>
+    </div>
+  </div>
+
+  <div class="mb-3 row">
+    <div  class="col-sm-2 col-form-label" >
+      <%= f.label :full_name %>
+    </div>
+
+    <div class="col-sm-10">
+      <%= f.text_field :full_name, placeholder: 'Full Name', class: 'form-control-lg' %>
+    </div>
+  </div>
+
+  <div class="mb-3 row">
+    <div  class="col-sm-2 col-form-label" >
+      <%= f.label :password %>
+    </div>
+
+    <div class="col-sm-10">
+      <%= f.password_field :password, class: 'form-control-lg' %>
+    </div>
+  </div>
+
+  <div class="mb-3 row">
+    <div  class="col-sm-2 col-form-label" >
+      <%= f.label :password_confirmation %>
+    </div>
+
+    <div class="col-sm-10">
+      <%= f.password_field :password_confirmation, class: 'form-control-lg' %>
+    </div>
+  </div>
+
+  <%= f.submit 'Sign up', class: 'btn btn-primary' %>
+<% end %>
