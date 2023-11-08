@@ -540,7 +540,41 @@
       },
       "/home/danil/Desktop/TwitMe/spec/models/advertisement_tag_spec.rb": {
         "lines": [
-
+          null,
+          null,
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null
+        ]
+      },
+      "/home/danil/Desktop/TwitMe/app/models/advertisement_tag.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          1,
+          1,
+          null
         ]
       },
       "/home/danil/Desktop/TwitMe/spec/models/comment_spec.rb": {
@@ -558,7 +592,6 @@
           1,
           1,
           1,
-          null,
           null,
           null,
           null
@@ -596,7 +629,6 @@
           1,
           1,
           1,
-          null,
           null,
           null,
           null
@@ -721,6 +753,6 @@
         ]
       }
     },
-    "timestamp": 1699436535
+    "timestamp": 1699437101
   }
 }
