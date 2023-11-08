@@ -1,0 +1,11 @@
+<%= form_with model: @advertisement do |f| %>
+  <div>
+    <%= f.text_field :title, placeholder: 'Title' %>
+  </div>
+
+  <div>
+    <%= f.text_area :body, placeholder: 'Appearance' %>
+  </div>
+
+  <%= f.submit 'Submit changes' %>
+<% end %>

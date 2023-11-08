@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
-  get '/advertisements', to: 'advertisements#index'
+  resources :advertisements, only: %i[index new edit create update]
+
   root 'pages#index'
 end
