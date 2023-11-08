@@ -10,57 +10,32 @@
           null,
           1,
           1,
-          null,
-          null,
-          null,
-          null,
           1,
           null,
           null,
           1,
           1,
-          null,
-          null,
-          null,
-          null,
           1,
           null,
           null,
           1,
           1,
-          null,
-          null,
-          null,
-          null,
           1,
           null,
           null,
           1,
           1,
-          null,
-          null,
-          null,
-          null,
           1,
           null,
           null,
           1,
           1,
-          null,
-          null,
-          null,
-          null,
           1,
           null,
           null,
           1,
           1,
-          null,
-          null,
-          null,
-          null,
           1,
-          null,
           null,
           null
         ]
@@ -399,20 +374,40 @@
           null
         ]
       },
+      "/home/danil/Desktop/TwitMe/spec/factories/advertisements.rb": {
+        "lines": [
+          1,
+          1,
+          7,
+          7,
+          1,
+          null,
+          null
+        ]
+      },
+      "/home/danil/Desktop/TwitMe/spec/factories/tags.rb": {
+        "lines": [
+          1,
+          1,
+          4,
+          null,
+          null
+        ]
+      },
       "/home/danil/Desktop/TwitMe/spec/factories/users.rb": {
         "lines": [
           1,
           1,
-          1,
-          2,
-          2,
-          2,
-          2,
-          2,
-          2,
-          2,
-          2,
-          2,
+          8,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
           null,
           null
         ]
@@ -540,8 +535,6 @@
       },
       "/home/danil/Desktop/TwitMe/spec/models/advertisement_tag_spec.rb": {
         "lines": [
-          null,
-          null,
           1,
           null,
           1,
@@ -562,7 +555,6 @@
           1,
           1,
           1,
-          null,
           null,
           null
         ]
@@ -629,7 +621,6 @@
           1,
           1,
           1,
-          null,
           null,
           null
         ]
@@ -720,7 +711,7 @@
           null,
           null,
           1,
-          8,
+          10,
           null,
           null
         ]
@@ -753,6 +744,6 @@
         ]
       }
     },
-    "timestamp": 1699437101
+    "timestamp": 1699438113
   }
 }
