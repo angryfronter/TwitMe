@@ -1,19 +1,30 @@
 class AdvertisementsController < ApplicationController
 
-  def edit
-    @advertisement = Advertisement.find_by id: params[:id]
+  before_action :set_advertisement,  except: %i[index new create]
+
+  def show; end
+
+  def destroy
+    flash[:success] = 'Advertisement deleted!'
+    if @advertisement.destroy
+      redirect_to advertisements_path
+    else
+      render :'advertisements/index'
+    end
   end
 
+  def edit; end
+
   def update
-    @advertisement = Advertisement.find_by id: params[:id]
-    if @advertisement.update advertisement_params
+    flash[:success] = 'Advertisement updated!'
+    if @advertisement.update(advertisement_params)
       redirect_to advertisements_path
     else
       render :edit
     end
   end
   def index
-    @advertisement = Advertisement.all
+    @advertisements = Advertisement.all
   end
 
   def new
@@ -21,8 +32,9 @@ class AdvertisementsController < ApplicationController
   end
 
   def create
-    @advertisement = Advertisement.new advertisement_params
+    @advertisement = Advertisement.new(advertisement_params)
     if @advertisement.save
+      flash[:success] = 'Advertisement added!'
       redirect_to advertisements_path
     else
       render :new
@@ -30,7 +42,13 @@ class AdvertisementsController < ApplicationController
   end
 
   private
+
+  def set_advertisement
+    @advertisement = Advertisement.find(params[:id])
+  end
+
   def advertisement_params
     params.require(:advertisement).permit(:title, :body)
   end
+
 end
