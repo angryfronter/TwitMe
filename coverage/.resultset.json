@@ -62,7 +62,6 @@
           1,
           null,
           null,
-          null,
           null
         ]
       },
@@ -532,10 +531,86 @@
           1,
           null,
           1,
-          1,
+          2,
           0,
           null,
           null,
+          null
+        ]
+      },
+      "/home/danil/Desktop/TwitMe/spec/models/advertisement_tag_spec.rb": {
+        "lines": [
+
+        ]
+      },
+      "/home/danil/Desktop/TwitMe/spec/models/comment_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/home/danil/Desktop/TwitMe/app/models/comment.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          null
+        ]
+      },
+      "/home/danil/Desktop/TwitMe/spec/models/tag_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/home/danil/Desktop/TwitMe/app/models/tag.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          1,
           null
         ]
       },
@@ -613,7 +688,7 @@
           null,
           null,
           1,
-          7,
+          8,
           null,
           null
         ]
@@ -646,6 +721,6 @@
         ]
       }
     },
-    "timestamp": 1699436014
+    "timestamp": 1699436535
   }
 }
