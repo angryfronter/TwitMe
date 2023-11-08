@@ -3,7 +3,7 @@
 <%= form_with model: @user do |f| %>
   <div class="mb-3 row">
     <div class="col-sm-2 col-form-label">
-      <%= f.label :title %>
+      <%= f.label :email %>
     </div>
 
     <div class="col-sm-10">
@@ -41,5 +41,17 @@
     </div>
   </div>
 
-  <%= f.submit 'Sign up', class: 'btn btn-primary' %>
+  <% unless @user.new_record? %>
+    <div class="mb-3 row">
+      <div  class="col-sm-2 col-form-label" >
+        <%= f.label :old_password %>
+      </div>
+
+      <div class="col-sm-10">
+        <%= f.password_field :old_password, class: 'form-control-lg' %>
+      </div>
+    </div>
+  <% end %>
+
+  <%= f.submit (@user.new_record? ? 'Sign up' : "Save changes"), class: 'btn btn-primary' %>
 <% end %>
