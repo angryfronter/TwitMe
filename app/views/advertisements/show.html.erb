@@ -1,8 +1,11 @@
+<% provide :page_title, @advertisement.title %>
+<% currently_at 'Advertisement' %>
+
 <h1 class="mb-4"><%= @advertisement.title %></h1>
 
-<p class="lead my-3">
-  <%= @advertisement.body %>
-</p>
+<div class="lead my-3">
+  <%= sanitize @advertisement.body %>
+</div>
 
 <%= link_to 'Edit', edit_advertisement_path(@advertisement), class: 'btn btn-secondary' %>
 <%= button_to 'Delete', advertisement_path(@advertisement), class: 'btn btn-danger' , method: :delete, data: {confirm: 'Are you sure?'} %>
@@ -15,21 +18,4 @@
 
 <h2 class="mt-5">Comments</h2>
 
-<% @comments.each do |comment| %>
-  <article class="mb-3 card">
-    <div class="card-body">
-      <section class="card-text">
-        <small><time datetime="<%= comment.formatted_created_at %>">
-          <%= comment.formatted_created_at %>
-        </time></small>
-
-        <p class="mt-2 mb-3">
-          <%= comment.body %>
-        </p>
-      </section>
-
-      <%= link_to 'Edit comment', edit_advertisement_comment_path(@advertisement, comment), class: 'btn btn-info btn-sm' %>
-      <%= button_to 'Delete comment', advertisement_comment_path(@advertisement, comment), method: :delete, class: 'btn btn-danger btn-sm', data: { confirm: "Are you sure?"} %>
-    </div>
-  </article>
-<% end %>
+<%= render partial: 'comments/comment', collection:  @comments, as: :comment, locals: {advertisement: @advertisement} %>

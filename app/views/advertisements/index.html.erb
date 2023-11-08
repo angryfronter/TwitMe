@@ -1,3 +1,6 @@
+<% provide :page_title, 'Advertisements' %>
+<% currently_at 'Advertisements' %>
+
 <h1 class="mb-4">Advertisements</h1>
 
 <%= link_to 'Add advertisement', new_advertisement_path, class: 'btn btn-primary btn-lg' %>
@@ -9,7 +12,7 @@
 
       <section class="card-text">
         <p class="my-2">
-          <%= advertisement.body %>
+          <%= truncate strip_tags(advertisement.body), length: 160, separator: ' ', omission: '...' %>
         </p>
       </section>
 
@@ -19,3 +22,5 @@
     </div>
   </article>
 <% end %>
+
+<%= paginate @advertisements %>
