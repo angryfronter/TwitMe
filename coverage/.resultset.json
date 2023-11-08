@@ -1,19 +1,15 @@
 {
   "RSpec": {
     "coverage": {
-      "/home/danil/Desktop/TwitMe/spec/models/user_spec.rb": {
+      "/home/danil/Desktop/TwitMe/spec/models/advertisement_spec.rb": {
         "lines": [
           1,
           null,
           1,
+          6,
+          null,
           1,
           1,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
           null,
           null,
           null,
@@ -23,7 +19,49 @@
           null,
           1,
           1,
+          null,
+          null,
+          null,
+          null,
           1,
+          null,
+          null,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
           null,
           null
         ]
@@ -447,6 +485,87 @@
           null
         ]
       },
+      "/home/danil/Desktop/TwitMe/app/models/advertisement.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          1,
+          null,
+          1,
+          1,
+          null,
+          1,
+          1,
+          null,
+          1,
+          null,
+          1,
+          0,
+          null,
+          null,
+          1,
+          1,
+          null,
+          1,
+          0,
+          0,
+          0,
+          null,
+          null
+        ]
+      },
+      "/home/danil/Desktop/TwitMe/app/models/application_record.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          1,
+          null
+        ]
+      },
+      "/home/danil/Desktop/TwitMe/app/controllers/concerns/authorship.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          1,
+          null,
+          1,
+          1,
+          0,
+          null,
+          null,
+          null
+        ]
+      },
+      "/home/danil/Desktop/TwitMe/spec/models/user_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
       "/home/danil/Desktop/TwitMe/app/models/user.rb": {
         "lines": [
           null,
@@ -494,17 +613,8 @@
           null,
           null,
           1,
-          2,
+          7,
           null,
-          null
-        ]
-      },
-      "/home/danil/Desktop/TwitMe/app/models/application_record.rb": {
-        "lines": [
-          null,
-          null,
-          1,
-          1,
           null
         ]
       },
@@ -536,6 +646,6 @@
         ]
       }
     },
-    "timestamp": 1699368361
+    "timestamp": 1699436014
   }
 }
