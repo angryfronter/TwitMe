@@ -1,16 +1,16 @@
 # frozen_string_literal: true
 
 class AdvertisementsController < ApplicationController
+  include AdvertisementsComments
   before_action :set_advertisement!, except: %i[index new create]
 
   def index
-    @advertisements = Advertisement.order(created_at: :desc).page params[:page]
+    @advertisements = Advertisement.includes(:user).order(created_at: :desc).page params[:page]
     @show_pagination = @advertisements.total_pages > 1
   end
 
   def show
-    @comment = @advertisement.comments.build
-    @comments = @advertisement.comments.order(created_at: :desc).decorate
+    load_advertisement_comments
   end
 
   def new
@@ -20,7 +20,7 @@ class AdvertisementsController < ApplicationController
   def edit; end
 
   def create
-    @advertisement = Advertisement.new(advertisement_params)
+    @advertisement = current_user.advertisements.build(advertisement_params)
     if @advertisement.save
       flash[:success] = 'Advertisement added!'
       redirect_to advertisements_path

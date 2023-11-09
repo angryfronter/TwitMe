@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class CommentsController < ApplicationController
+  include AdvertisementsComments
   include ActionView::RecordIdentifier
 
   before_action :set_advertisement!
@@ -9,20 +10,17 @@ class CommentsController < ApplicationController
   def edit; end
 
   def create
-    @comment = @advertisement.comments.build(comment_params)
+    @comment = @advertisement.comments.build(comment_create_params)
     if @comment.save
       flash[:success] = 'Comment added!'
       redirect_to advertisement_path(@advertisement)
     else
-      @advertisement = @advertisement.decorate
-      @comments = @advertisement.comments.order created_at: :desc
-      @comments = @comments.decorate
-      render 'advertisements/show'
+      load_advertisement_comments(do_render: true)
     end
   end
 
   def update
-    if @comment.update(comment_params)
+    if @comment.update(comment_update_params)
       flash[:success] = 'Comment has been updated!'
       redirect_to advertisement_path(@advertisement, anchor: dom_id(@comment))
     else
@@ -38,7 +36,11 @@ class CommentsController < ApplicationController
 
   private
 
-  def comment_params
+  def comment_create_params
+    params.require(:comment).permit(:body).merge(user: current_user)
+  end
+
+  def comment_update_params
     params.require(:comment).permit(:body)
   end
 
