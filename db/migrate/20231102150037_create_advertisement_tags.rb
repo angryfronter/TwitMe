@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateAdvertisementTags < ActiveRecord::Migration[7.0]
   def change
     create_table :advertisement_tags do |t|
@@ -7,6 +9,6 @@ class CreateAdvertisementTags < ActiveRecord::Migration[7.0]
       t.timestamps
     end
 
-    add_index :advertisement_tags, [:advertisement_id, :tag_id], unique: true
+    add_index :advertisement_tags, %i[advertisement_id tag_id], unique: true
   end
 end

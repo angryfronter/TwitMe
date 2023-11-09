@@ -2,8 +2,11 @@
 
 class AdvertisementsController < ApplicationController
   include AdvertisementsComments
-  before_action :set_advertisement!, except: %i[index new create]
+  before_action :require_authentication, except: %i[show index]
+  before_action :set_advertisement!, only: %i[show destroy edit update]
   before_action :fetch_tags, only: %i[new edit]
+  before_action :authorize_advertisement!
+  after_action :verify_authorized
 
   def index
     page = params[:page] || 1
@@ -64,5 +67,9 @@ class AdvertisementsController < ApplicationController
 
   def fetch_tags
     @tags = Tag.all
+  end
+
+  def authorize_advertisement!
+    authorize(@advertisement || Advertisement)
   end
 end

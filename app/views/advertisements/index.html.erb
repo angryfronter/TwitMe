@@ -15,8 +15,9 @@
     <%= button_tag 'Search', class: 'btn btn-secondary'%>
     <% end %>
 </section>
-
+<% if policy(:advertisement).new? %>
 <%= link_to 'Add advertisement', new_advertisement_path, class: 'btn btn-primary btn-lg mb-3' %>
+<% end %>
 
 <%= render @advertisements %>
 

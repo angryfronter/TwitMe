@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
-  enum role: { basic: 0, moderator: 1, admin: 2}, _suffix: :role
+  enum role: { basic: 0, moderator: 1, admin: 2 }, _suffix: :role
 
   attr_accessor :old_password, :admin_edit
 
@@ -16,6 +16,14 @@ class User < ApplicationRecord
 
   validates :email, presence: true, uniqueness: true, 'valid_email_2/email': true
   validates :role, presence: true
+
+  def guest?
+    false
+  end
+
+  def author?(obj)
+    obj.user == self
+  end
 
   private
 
