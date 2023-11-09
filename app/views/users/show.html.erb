@@ -1,0 +1,99 @@
+<% provide :page_title, 'Profile information' %>
+<% currently_at 'All Users' %>
+
+<h1 class="mb-4">Profile information</h1>
+
+<%= render 'shared/errors', object: @user %>
+
+<%= form_with model: @user do |f| %>
+  <div class="mb-3 row">
+    <div class="col-sm-2 col-form-label">
+      <%= f.label :email %>
+    </div>
+
+    <div class="col-sm-10">
+      <%= f.email_field :email, placeholder: 'Empty', class: 'form-control-lg', disabled: true %>
+    </div>
+  </div>
+
+  <div class="mb-3 row">
+    <div  class="col-sm-2 col-form-label" >
+      <%= f.label :full_name %>
+    </div>
+
+    <div class="col-sm-10">
+      <%= f.text_field :full_name, placeholder: 'Empty', class: 'form-control-lg', disabled: true %>
+    </div>
+  </div>
+
+  <div class="mb-3 row">
+    <div class="col-sm-2 col-form-label">
+      <%= f.label :role %>
+    </div>
+
+    <div class="col-sm-10">
+      <%= f.text_field :role, class: 'form-control-plaintext form-control-lg', readonly: true %>
+    </div>
+  </div>
+
+  <div class="mb-3 row">
+    <div  class="col-sm-2 col-form-label" >
+      <%= f.label :birthday %>
+    </div>
+
+    <div class="col-sm-10">
+      <%= f.date_select :birthday, { order: [:day, :month, :year], prompt: { day: 'Empty', month: 'Empty', year: 'Empty' }, start_year: Date.today.year - 60, end_year: Date.today.year, class: 'form-control-lg' }, disabled: true %>
+    </div>
+  </div>
+
+  <div class="mb-3 row">
+    <div  class="col-sm-2 col-form-label" >
+      <%= f.label :address %>
+    </div>
+
+    <div class="col-sm-10">
+      <%= f.text_field :address, placeholder: 'Empty', class: 'form-control-lg', disabled: true %>
+    </div>
+  </div>
+
+  <div class="mb-3 row">
+    <div  class="col-sm-2 col-form-label" >
+      <%= f.label :city %>
+    </div>
+
+    <div class="col-sm-10">
+      <%= f.text_field :city, placeholder: 'Empty', class: 'form-control-lg', disabled: true %>
+    </div>
+  </div>
+
+  <div class="mb-3 row">
+    <div  class="col-sm-2 col-form-label" >
+      <%= f.label :state %>
+    </div>
+
+    <div class="col-sm-10">
+      <%= f.text_field :state, placeholder: 'Empty', class: 'form-control-lg', disabled: true %>
+    </div>
+  </div>
+
+  <div class="mb-3 row">
+    <div  class="col-sm-2 col-form-label" >
+      <%= f.label :country %>
+    </div>
+
+    <div class="col-sm-10">
+      <%= f.text_field :country, placeholder: 'Empty', class: 'form-control-lg', disabled: true %>
+    </div>
+  </div>
+
+  <div class="mb-3 row">
+    <div  class="col-sm-2 col-form-label" >
+      <%= f.label :zip %>
+    </div>
+
+    <div class="col-sm-10">
+      <%= f.text_field :zip, placeholder: 'Empty', class: 'form-control-lg', disabled: true %>
+    </div>
+  </div>
+
+<% end %>

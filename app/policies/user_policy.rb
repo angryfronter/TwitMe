@@ -11,7 +11,11 @@ class UserPolicy < ApplicationPolicy
 
   # for list of users
   def index?
-    false
+    user.present?
+  end
+
+  def all_users?
+    user.present?
   end
 
   def show?
@@ -20,5 +24,10 @@ class UserPolicy < ApplicationPolicy
 
   def destroy?
     false
+  end
+
+  def initialize(user, record)
+    @user = user || GuestUser.new
+    @record = record
   end
 end

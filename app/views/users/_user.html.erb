@@ -1,0 +1,8 @@
+<tr>
+  <th scope="row"><%= user.full_name %></th>
+  <td><%= user.email %></td>
+  <td><%= user.role %></td>
+  <td>
+    <%= link_to 'Show information', user_path(user), class: 'btn btn-secondary' %>
+  </td>
+</tr>
