@@ -24,7 +24,10 @@ class AdvertisementsController < ApplicationController
     @advertisement = Advertisement.new
   end
 
-  def edit; end
+  def edit
+    @advertisement = Advertisement.find(params[:id])
+    fetch_tags
+  end
 
   def create
     fetch_tags
@@ -62,7 +65,7 @@ class AdvertisementsController < ApplicationController
   end
 
   def advertisement_params
-    params.require(:advertisement).permit(:title, :body, tag_ids: [])
+    params.require(:advertisement).permit(:title, :body, :image, tag_ids: [])
   end
 
   def fetch_tags

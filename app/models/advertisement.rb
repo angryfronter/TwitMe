@@ -9,6 +9,12 @@ class Advertisement < ApplicationRecord
   has_many :advertisement_tags, dependent: :destroy
   has_many :tags, through: :advertisement_tags
 
+  dragonfly_accessor :image
+
+  def image_url
+    image.url if image.present?
+  end
+
   validates :title, presence: true, length: { minimum: 5 }
   validates :body, presence: true, length: { minimum: 5 }
 

@@ -11,6 +11,13 @@
   <%=  @advertisement.user.email%>
 </div>
 
+<% if @advertisement.image.present? %>
+  <div class="border-top py-3">
+    <%= image_tag @advertisement.image.url, class: 'img-fluid' %>
+  </div>
+<% end %>
+
+
 <% if policy(@advertisement).edit? %>
 <div class="border-top py-3">
   <div class="btn-group">
