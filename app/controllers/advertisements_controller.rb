@@ -3,10 +3,14 @@
 class AdvertisementsController < ApplicationController
   include AdvertisementsComments
   before_action :set_advertisement!, except: %i[index new create]
+  before_action :fetch_tags, only: %i[new edit]
 
   def index
-    @advertisements = Advertisement.includes(:user).order(created_at: :desc).page params[:page]
+    page = params[:page] || 1
+    per_page = 10
+    @advertisements = Advertisement.all_by_tags(params[:tag_ids], page, per_page)
     @show_pagination = @advertisements.total_pages > 1
+    @tags = Tag.all
   end
 
   def show
@@ -20,6 +24,7 @@ class AdvertisementsController < ApplicationController
   def edit; end
 
   def create
+    fetch_tags
     @advertisement = current_user.advertisements.build(advertisement_params)
     if @advertisement.save
       flash[:success] = 'Advertisement added!'
@@ -54,6 +59,10 @@ class AdvertisementsController < ApplicationController
   end
 
   def advertisement_params
-    params.require(:advertisement).permit(:title, :body)
+    params.require(:advertisement).permit(:title, :body, tag_ids: [])
+  end
+
+  def fetch_tags
+    @tags = Tag.all
   end
 end
