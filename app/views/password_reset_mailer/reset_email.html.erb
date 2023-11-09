@@ -1,0 +1,5 @@
+<p>You have submitted a request to reset your password TwitMe</p>
+
+<p>
+  <%= link_to 'Reset password', edit_password_reset_url(user: {password_reset_token: @user.password_reset_token, email: @user.email}), target: '_blank' %>
+</p>

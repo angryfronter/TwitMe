@@ -14,15 +14,16 @@
     </div>
   </div>
 
-<div class="mb-3 row">
-  <div class="col-sm-2 col-form-label">
-    <%= f.label :password %>
+  <div class="mb-3 row">
+    <div class="col-sm-2 col-form-label">
+      <%= f.label :password %>
+    </div>
+
+    <div class="col-sm-10">
+      <%= f.password_field :password, placeholder: 'Password', class: 'form-control-lg' %>
+    </div>
   </div>
 
-  <div class="col-sm-10">
-    <%= f.password_field :password, placeholder: 'Password', class: 'form-control-lg' %>
-  </div>
-</div>
-
-<%= f.submit 'Log In!', class: 'btn btn-primary' %>
+  <%= f.submit 'Log In!', class: 'btn btn-primary' %>
+  <%= link_to 'Forgot password', new_password_reset_path, class: 'btn btn-secondary'  %>
 <% end %>
