@@ -3,6 +3,8 @@
 module Authentication
   extend ActiveSupport::Concern
 
+  require 'abstract_controller/helpers'
+
   included do
     private
 
