@@ -10,5 +10,17 @@ FactoryBot.define do
     state { 'Some State' }
     country { 'Some Country' }
     zip { '12345' }
+
+    trait :admin_role do
+      after(:create) { |user| user.update_attribute(:role, 'admin') }
+    end
+
+    trait :moderator_role do
+      after(:create) { |user| user.update_attribute(:role, 'moderator') }
+    end
+
+    trait :author_role do
+      after(:create) { |user| user.update_attribute(:role, 'author') }
+    end
   end
 end
