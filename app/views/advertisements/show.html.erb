@@ -18,13 +18,13 @@
 <% end %>
 
 
-<% if policy(@advertisement).edit? %>
+<% if current_user && @advertisement.editable_by?(current_user) %>
 <div class="border-top py-3">
   <div class="btn-group">
 
       <%= link_to 'Edit', edit_advertisement_path(@advertisement), class: 'btn btn-secondary' %>
 
-    <% if policy(@advertisement).destroy? %>
+    <% if current_user && @advertisement.destroyable_by?(current_user) %>
       <%= button_to 'Delete', advertisement_path(@advertisement), class: 'btn btn-danger' , method: :delete, data: {confirm: 'Are you sure?'} %>
     <% end %>
 
@@ -34,7 +34,7 @@
 
 <hr class="my-3">
 
-<% if policy(:comment).new? %>
+<% if current_user && @comment.create_by?(current_user) %>
 <h2>Write your comment here</h2>
 
 <%= render 'comments/form' %>

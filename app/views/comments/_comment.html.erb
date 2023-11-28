@@ -19,11 +19,11 @@
             </div>
           </section>
 
-          <% if policy(comment).edit? %>
+          <% if current_user && comment.editable_by?(current_user) %>
             <%= link_to 'Edit comment', edit_advertisement_comment_path(advertisement, comment), class: 'btn btn-info btn-sm' %>
           <% end %>
 
-          <% if policy(comment).destroy? %>
+          <% if current_user && comment.destroyable_by?(current_user) %>
             <%= button_to 'Delete comment', advertisement_comment_path(advertisement, comment), method: :delete, class: 'btn btn-danger btn-sm', data: { confirm: "Are you sure?"} %>
           <% end %>
         </div>
