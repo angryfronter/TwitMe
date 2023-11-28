@@ -15,6 +15,18 @@ class Advertisement < ApplicationRecord
     image.url if image.present?
   end
 
+  def editable_by?(user)
+    return false if user.nil? || user.guest?
+
+    user.admin_role? || user.moderator_role? || user.author?(self)
+  end
+
+  def destroyable_by?(user)
+    return false if user.nil? || user.guest?
+
+    user.admin_role? || user.moderator_role?
+  end
+
   validates :title, presence: true, length: { minimum: 5 }
   validates :body, presence: true, length: { minimum: 5 }
 

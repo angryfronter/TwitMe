@@ -25,11 +25,11 @@
 
     <%= link_to 'Show', advertisement_path(advertisement), class: 'btn btn-primary' %>
 
-    <% if policy(advertisement).edit? %>
+    <% if current_user && advertisement.editable_by?(current_user) %>
       <%= link_to 'Edit', edit_advertisement_path(advertisement), class: 'btn btn-secondary' %>
     <% end %>
 
-    <% if policy(advertisement).destroy? %>
+    <% if current_user && advertisement.destroyable_by?(current_user) %>
       <%= button_to 'Delete', advertisement_path(advertisement), class: 'btn btn-danger' , method: :delete, data: {confirm: 'Are you sure?'} %>
     <% end %>
   </div>
