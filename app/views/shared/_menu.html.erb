@@ -7,7 +7,7 @@
           <li><%= nav_tab 'Advertisements', advertisements_path, class: 'nav-link px-2', current_page: current_page %></li>
 
           <% if user_signed_in? %>
-            <% if policy([:admin, :user]).index? %>
+            <% if current_user&.admin_role? || current_user&.user %>
               <li><%= nav_tab 'Users', admin_users_path, class: 'nav-link px-2', current_page: current_page %></li>
             <% end %>
             <li><%= nav_tab 'All Users', all_users_path, class: 'nav-link px-2', current_page: current_page %></li>
