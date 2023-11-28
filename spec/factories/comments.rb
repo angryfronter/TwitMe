@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :comment do
-    body { Faker::Lorem.sentence }
+    body { 'Test comment' }
     user
     association :advertisement
   end
